@@ -1,0 +1,13 @@
+# Dependências
+/node_modules
+
+# Build do Next.js
+/.next
+/out
+
+# Segredos (nunca versionar)
+.env
+.env*.local
+
+# Sistema
+.DS_Store

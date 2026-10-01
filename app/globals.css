@@ -1,0 +1,891 @@
+/* ===== Identidade visual v2 · Dark Tech (fonte: design.md) ===== */
+:root {
+  --bg: #0D1117;
+  --surface: #151B24;
+  --surface-2: #1B222E;
+  --border: #262F3D;
+  --text: #E6EAF2;
+  --text-muted: #8B97A8;
+  --accent: #4DBDFF;
+  --accent-hover: #6BA1FF;
+  --accent-soft: rgba(77, 189, 255, 0.12);
+  --stage-novo: #8B99AD;
+  --stage-contato: #F5A524;
+  --stage-proposta: #A78BFA;
+  --stage-cliente: #34D399;
+  --danger: #FB7171;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* ===== Shell de aplicação ===== */
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.appheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 56px;
+  padding: 0 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.appheader-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.appheader-brand {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.appheader-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.appheader-user {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.menu-toggle {
+  display: none; /* aparece só no mobile */
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px;
+  align-items: center;
+}
+
+.shell-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 16px 12px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.nav-item-ativo,
+.nav-item-ativo:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+.content {
+  flex: 1;
+  padding: 32px 24px 64px;
+  min-width: 0;
+}
+
+.area {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.area-titulo {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ===== Cartões (superfícies) ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.card + .card {
+  margin-top: 24px;
+}
+
+.card-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ===== Formulário ===== */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.input-erro {
+  border-color: var(--danger);
+}
+
+.field-error {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.btn {
+  font: inherit;
+  font-weight: 700;
+  color: #0D1117;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 11px 18px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-sm {
+  align-self: flex-start;
+  padding: 8px 14px;
+}
+
+.error {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.sucesso {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--stage-cliente);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.btn-link-danger {
+  color: var(--danger);
+}
+
+.btn-link-danger:hover {
+  color: #E05252;
+}
+
+/* ===== Painel do funil ===== */
+.painel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.stat-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-rotulo {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.stat-total .stat-num {
+  color: var(--text);
+}
+.stat-novo .stat-num {
+  color: var(--stage-novo);
+}
+.stat-contato .stat-num {
+  color: var(--stage-contato);
+}
+.stat-proposta .stat-num {
+  color: var(--stage-proposta);
+}
+.stat-cliente .stat-num {
+  color: var(--stage-cliente);
+}
+
+/* ===== Gráfico de barras (distribuição por etapa) ===== */
+.grafico {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grafico-linha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.grafico-rotulo {
+  width: 96px;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.grafico-trilha {
+  flex: 1;
+  height: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.grafico-barra {
+  height: 100%;
+  border-radius: 7px;
+}
+
+.grafico-valor {
+  width: 24px;
+  flex-shrink: 0;
+  text-align: right;
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ===== Últimos contatos ===== */
+.recentes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.recente-item:hover {
+  border-color: var(--accent);
+}
+
+.recente-nome {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.recente-tempo {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Lista de contatos ===== */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.contact-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.contact-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-detail {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.empty {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Seletor de etapa (mono; a cor da etapa vem das classes .pill-*) */
+.etapa-select {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+
+.etapa-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.etapa-select option {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Etiqueta de etapa / papel (cor no texto e borda) */
+.pill {
+  flex-shrink: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.pill-novo {
+  color: var(--stage-novo);
+}
+.pill-contato {
+  color: var(--stage-contato);
+}
+.pill-proposta {
+  color: var(--stage-proposta);
+}
+.pill-cliente {
+  color: var(--stage-cliente);
+}
+
+/* ===== Anotações ===== */
+.notes {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.notes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.notes-input {
+  resize: vertical;
+}
+
+.notes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.note-text {
+  margin: 0;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.note-date {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.note-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== Follow-up por IA ===== */
+.followup {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.followup-status {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.followup-box {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: var(--surface-2);
+}
+
+.followup-text {
+  margin: 0 0 8px;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+/* ===== Login / cadastro (fora do shell) ===== */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-brand {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.login-tagline {
+  margin: 6px 0 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.login-link {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.login-link a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Kanban do funil ===== */
+.area-larga {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.area-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.area-topo .area-titulo {
+  margin: 0;
+}
+
+.kanban {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.coluna {
+  flex: 1;
+  min-width: 220px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.coluna-sobre {
+  border-color: var(--accent);
+}
+
+.coluna-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.coluna-nome {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.coluna-contador {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.coluna-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  min-height: 80px;
+}
+
+.card-contato {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  cursor: grab;
+}
+
+.card-contato:active {
+  cursor: grabbing;
+}
+
+.card-nome {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card-email {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.card-tempo {
+  margin: 8px 0 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.coluna-vazia {
+  margin: 4px 0;
+  padding: 12px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ===== Página do contato ===== */
+.contato-nome {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.contato-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.contato-etapa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.contato-etapa label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.followups-lista {
+  margin-top: 16px;
+}
+
+/* ===== Busca de contatos ===== */
+.busca-input {
+  width: 100%;
+}
+
+.busca-vazio {
+  margin-top: 12px;
+}
+
+.busca-resultados {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.busca-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.busca-item:hover {
+  border-color: var(--accent);
+}
+
+.busca-item-nome {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.busca-item-email {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== Modal (superfície elevada) ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 50;
+}
+
+.modal {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.modal-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-topo .card-title {
+  margin: 0;
+}
+
+/* ===== Responsivo (telas estreitas) ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.15s ease;
+  }
+
+  .sidebar.sidebar-aberto {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 30;
+  }
+
+  .content {
+    padding: 24px 16px 48px;
+  }
+}
